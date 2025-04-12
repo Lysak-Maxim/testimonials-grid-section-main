@@ -19,4 +19,151 @@
 
   font-size: 13px;
   font-family: "Barlow Semi Condensed", sans-serif;
+
+  background-color: var(--purple-50);
+}
+
+main {
+  padding: 80px 0;
+
+  display: grid;
+  grid-template-columns: 23rem; /*about 300px*/
+  justify-content: center;
+  gap: 25px 30px;
+  grid-template-areas:
+    "first"
+    "second"
+    "third"
+    "fourth"
+    "fifth";
+}
+
+article:nth-child(1) {
+  grid-area: first;
+}
+
+article:nth-child(2) {
+  grid-area: second;
+}
+
+article:nth-child(3) {
+  grid-area: third;
+}
+
+article:nth-child(4) {
+  grid-area: fourth;
+}
+
+article:nth-child(5) {
+  grid-area: fifth;
+}
+
+article {
+  padding: 35px 30px;
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+
+  box-shadow: 40px 50px 35px hsl(0, 0%, 78%);
+}
+
+article header {
+  display: flex;
+  column-gap: 15px;
+  align-items: center;
+
+  & address {
+    font-style: normal;
+    font-size: 1.1em;
+    margin: 0 0 0.15em 0;
+  }
+
+  & span {
+    font-size: 0.9em;
+  }
+}
+
+header img {
+  border-radius: 50%;
+  width: 32px;
+}
+
+article blockquote p {
+  &::before {
+    content: "“";
+  }
+
+  &::after {
+    content: "”";
+  }
+}
+
+/* classes styling color scheme of each type of testimonials */
+
+.testimonial-purple {
+  background-color: var(--purple-500);
+  color: var(--white);
+
+  & img {
+    border: 2px solid var(--purple-300);
+  }
+}
+
+.testimonial-grey {
+  background-color: var(--grey-500);
+  color: var(--white);
+
+  & span {
+    color: var(--grey-200);
+  }
+
+  & blockquote {
+    color: var(--grey-100);
+  }
+}
+
+.testimonial-white {
+  background-color: var(--white);
+  color: var(--grey-400);
+
+  & :is(h2, address) {
+    color: var(--grey-500);
+  }
+}
+
+.testimonial-black {
+  background-color: var(--dark-blue);
+  color: var(--grey-200);
+
+  & img {
+    border: 2px solid var(--purple-500);
+  }
+
+  & div {
+    color: var(--white);
+  }
+}
+
+@media (width >= 62.5rem) {
+  main {
+    grid-template-columns: repeat(4, 17rem);
+    grid-template-areas:
+      "first first second fifth"
+      "third fourth fourth fifth";
+  }
+
+  .testimonial-purple {
+    background-image: url("images/bg-pattern-quotation.svg");
+
+    background-repeat: no-repeat;
+    background-position-x: right 15%;
+  }
+}
+
+@media (width >= 71.5rem) {
+  main {
+    grid-template-columns: repeat(4, 19rem);
+  }
 }
